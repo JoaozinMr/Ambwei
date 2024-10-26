@@ -9,9 +9,5 @@
         // Foreign keys
         public int pacient_id { get; set; } // fk pacient_id
         public int user_id { get; set; } // fk user_id
-
-        // Navigation properties
-        public Pacient Paciente { get; set; }
-        public User Usuario { get; set; }
     }
 }

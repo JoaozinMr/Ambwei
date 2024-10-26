@@ -57,37 +57,6 @@ namespace Ambwei
             modelBuilder.Entity<User>()
                 .Property(u => u.user_id)
                 .ValueGeneratedOnAdd(); // Auto-incremento, se necessário
-
-            // Configurando relacionamentos (Foreign Keys)
-            modelBuilder.Entity<Process>()
-                .HasOne(pr => pr.Paciente)
-                .WithMany()
-                .HasForeignKey(pr => pr.pacient_id);
-
-            modelBuilder.Entity<Process>()
-                .HasOne(pr => pr.Usuario)
-                .WithMany()
-                .HasForeignKey(pr => pr.user_id);
-
-            modelBuilder.Entity<Models.Task>()
-                .HasOne(t => t.Usuario)
-                .WithMany()
-                .HasForeignKey(t => t.user_id);
-
-            modelBuilder.Entity<Models.Task>()
-                .HasOne(t => t.Processo)
-                .WithMany()
-                .HasForeignKey(t => t.process_id);
-
-            modelBuilder.Entity<Models.Task>()
-                .HasOne(t => t.Local)
-                .WithMany()
-                .HasForeignKey(t => t.location_id);
-
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.Role)
-                .WithMany()
-                .HasForeignKey(u => u.role_id);
         }
     }
 }
