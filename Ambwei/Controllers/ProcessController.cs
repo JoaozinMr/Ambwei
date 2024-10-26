@@ -7,13 +7,13 @@ namespace Ambwei.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProccessController : ControllerBase
+    public class ProcessController : ControllerBase
     {
-        private readonly ILogger<ProccessController> _logger;
+        private readonly ILogger<ProcessController> _logger;
 
         private readonly AppDbContext _context;
 
-        public ProccessController(ILogger<ProccessController> logger, AppDbContext context)
+        public ProcessController(ILogger<ProcessController> logger, AppDbContext context)
         {
             _logger = logger;
             _context = context;
