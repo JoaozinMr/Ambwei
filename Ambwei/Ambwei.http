@@ -1,0 +1,6 @@
+@Ambwei_HostAddress = http://localhost:5114
+
+GET {{Ambwei_HostAddress}}/User/
+Accept: application/json
+
+###
