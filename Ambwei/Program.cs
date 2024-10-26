@@ -5,6 +5,17 @@ using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirOrigemEspecifica", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // URL completa do front-end em localhost
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+
 // Add services to the container.
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -17,6 +28,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors("PermitirOrigemEspecifica");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
