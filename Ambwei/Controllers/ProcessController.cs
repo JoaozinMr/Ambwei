@@ -61,7 +61,7 @@ namespace Ambwei.Controllers
             // Cria um novo processo vinculando o paciente ao médico
             var process = new Process
             {
-                created_at = DateTime.Now,
+                created_at = DateTime.UtcNow,
                 pacient_id = pacientId,  // Vincula o paciente
                 user_id = userId         // Vincula o médico (usuário)
             };
