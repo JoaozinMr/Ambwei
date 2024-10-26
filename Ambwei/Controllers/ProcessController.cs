@@ -27,7 +27,7 @@ namespace Ambwei.Controllers
         }
 
         [HttpGet("{id}", Name = "GetProcess")]
-        public async Task<ActionResult<Process>> GetRole(int id)
+        public async Task<ActionResult<Process>> GetProcess(int id)
         {
             var process = await _context.Processes.FindAsync(id);
 
