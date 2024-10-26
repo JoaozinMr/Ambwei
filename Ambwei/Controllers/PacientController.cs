@@ -27,9 +27,9 @@ namespace Ambwei.Controllers
         }
 
         [HttpGet("{id}", Name = "GetPacient")]
-        public async Task<ActionResult<Pacient>> GetPacient(int id)
+        public async Task<ActionResult<Pacient>> GetPacient(string cpf)
         {
-            var pacient = await _context.Pacients.FindAsync(id);
+            var pacient = await _context.Pacients.Where(x => x.pacient_cpf == cpf).FirstOrDefaultAsync();
 
             if (pacient == null)
             {
